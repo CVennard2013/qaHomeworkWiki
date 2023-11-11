@@ -68,6 +68,7 @@ describe("Employee Manager 1.2", () => {
             await (await driver.findElement()).getAttribute("")
         ).toBe("");
         });
+        // This tests to see if unsaved changes do not take place
 
         test("A canceled change doesn't persist", async () => {
             /*
@@ -88,6 +89,7 @@ describe("Employee Manager 1.2", () => {
                 await (await driver.findElement()).getAttribute("")
             ).toBe("");
         });
+        // This test verifies that if you cancel, the change doesn't take place and origional name is still there
 
         test("A saved change persists", async () => {
             /*
@@ -119,6 +121,7 @@ describe("Employee Manager 1.2", () => {
             ).toBe("Bernice Ortiz");
     });
 });
+// This test verifies that an edit actually takes place when intended
 
     describe("handles error messages correctly", () => {
         test("shows an error message for an empty name field", async () => {
@@ -141,6 +144,8 @@ describe("Employee Manager 1.2", () => {
                 "The name field must be between 1 and 30 characters long."
             );
         });
+//This test verifies that an error pops up if you have 0 characters for an input
+
         test("lets you cancel out of an error message", async () => {
             /*
             This test follows these steps:
@@ -168,4 +173,5 @@ describe("Employee Manager 1.2", () => {
             expect(await driver.findElements()).toHaveLength(0);
         });
     });
+    //This test verifies that if you get an error, the error doesn't remain if issue is fixed.
 });
